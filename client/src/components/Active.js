@@ -10,8 +10,8 @@ const Active = () => {
     setActive("-Forward-" + data.data.data);
   };
   const backwardHandler = async () => {
-    const data = await activeService.get();
     await activeService.update({ active: "B" });
+    const data = await activeService.get();
     setActive("-Back-" + data.data.data);
   };
   const turnLeftHandler = async () => {
