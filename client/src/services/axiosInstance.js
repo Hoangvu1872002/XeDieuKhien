@@ -2,7 +2,8 @@ import axios from "axios";
 // require("dotenv").config();
 
 const axiosInstance = axios.create({
-   baseURL: "http://localhost:5000/",
+   baseURL: "https://bugnef-be-xedieukhien.onrender.com/",
+   // baseURL: "http://localhost:5000/",
 });
 
 export default axiosInstance;

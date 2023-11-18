@@ -4,7 +4,7 @@ require("dotenv").config()
 const connectDatabase = async ()=>{
 
     try {
-        const databaseConfig = "mongodb://127.0.0.1/XeDieuKhien";       
+        const databaseConfig = "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority";       
         const connect = await mongoose.connect(databaseConfig);
         console.log(`da ket noi mongodb: ${connect.connection.host}`);
     } catch (error) {
