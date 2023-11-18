@@ -5,14 +5,14 @@ const Active = () => {
   const [active, setActive] = useState();
   const forwardHandler = async () => {
     await activeService.update({ active: "F" });
-    const data = await activeService.get();
+    // const data = await activeService.get();
     // console.log(data);
-    setActive("-Forward-" + data.data.data);
+    setActive("-Forward-");
   };
   const backwardHandler = async () => {
     await activeService.update({ active: "B" });
-    const data = await activeService.get();
-    setActive("-Back-" + data.data.data);
+    // const data = await activeService.get();
+    setActive("-Back-");
   };
   const turnLeftHandler = async () => {
     await activeService.update({ active: "L" });
