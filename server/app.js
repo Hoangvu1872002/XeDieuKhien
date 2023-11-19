@@ -58,8 +58,8 @@ const fun = async () => {
   const io = require("socket.io")(server, {
     cors: {
       // origin: "http://localhost:3000",
-      origin: "https://main--bugnef-xedieukhien.netlify.app/",
-      methods: ["GET"],
+      origin: "*",
+      // methods: ["GET"],
     },
   });
   const client = new MongoClient(
@@ -73,6 +73,7 @@ const fun = async () => {
   changeStream.on("change", (change) => {
 
     io.emit('collectionChange', change);
+
 
     // io.emit('collectionChange', change.updateDescription.updatedFields.active);
     // console.log("Received a change:", change.updateDescription.updatedFields.active);
