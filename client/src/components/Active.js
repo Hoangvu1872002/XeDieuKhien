@@ -61,15 +61,20 @@ const Active = () => {
       console.log(error);
     }
   }
+  
+  const getDataParameter = async () => {
+    return await parameterService.get();
+  }
 
   useEffect(() => {
     start();
+    getDataParameter();
     // const socket = io('http://localhost:5000');
     const socket = io('https://bugnef-be-xedieukhien.onrender.com');
   socket.on('collectionChange', async(change) => {
     if(change){
       try {
-        const dataParameter = await parameterService.get();
+        const dataParameter = getDataParameter();
         setData(dataParameter.data)
       } catch (error) {
         console.log(error);
