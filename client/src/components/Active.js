@@ -63,12 +63,14 @@ const Active = () => {
   }
   
   const getDataParameter = async () => {
-    return await parameterService.get();
+    const data = await parameterService.get();
+    return data
   }
 
   useEffect(() => {
     start();
-    getDataParameter();
+    const dataStart = getDataParameter();
+    setData(dataStart)
     // const socket = io('http://localhost:5000');
     const socket = io('https://bugnef-be-xedieukhien.onrender.com');
   socket.on('collectionChange', async(change) => {
@@ -83,7 +85,7 @@ const Active = () => {
   });
   return () => {
     socket.disconnect(); 
-    clearHandler();// Ngắt kết nối khi component unmount
+    // clearHandler();// Ngắt kết nối khi component unmount
   };
   }, []);
 
