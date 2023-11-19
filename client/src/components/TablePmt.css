@@ -1,0 +1,31 @@
+/* MyTable.css */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  tr:nth-child(odd) td {
+    background-color: #f2f2f2; /* Màu nền cho các ô ở hàng lẻ */
+  }
+  
+  tr:nth-child(even) td {
+    background-color: #e0e0e0; /* Màu nền cho các ô ở hàng chẵn */
+  }
+  
+  td:hover {
+    background-color: #ffc107 !important;
+    cursor: pointer; /* Màu nền khi hover qua các ô */
+  }
+  
