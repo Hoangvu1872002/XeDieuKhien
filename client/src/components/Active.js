@@ -80,6 +80,7 @@ const Active = () => {
         }
       }
     });
+    // console.log(data);
     return () => {
       socket.disconnect();
       // clearHandler();// Ngắt kết nối khi component unmount

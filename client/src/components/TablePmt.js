@@ -2,7 +2,7 @@ import React from 'react';
 import './TablePmt.css'; 
 
 const TablePmt = (props) => {
-  console.log(props.data);
+  // console.log(props.data);
     return (
       <div>
 
@@ -21,7 +21,7 @@ const TablePmt = (props) => {
         </thead>
         <tbody>
         {
-          props.data?.data?.map((e, index) => (
+          props.data?.data?.data?.map((e, index) => (
             <tr key={index}>
             <td>{index}</td>
             <td>{e.distance}</td>
