@@ -58,7 +58,7 @@ const fun = async () => {
   const io = require("socket.io")(server, {
     cors: {
       // origin: "http://localhost:3000",
-      origin: "https://bugnef-xedieukhien.netlify.app",
+      origin: "https://main--bugnef-xedieukhien.netlify.app/",
       methods: ["GET"],
     },
   });
