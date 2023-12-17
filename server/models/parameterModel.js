@@ -7,25 +7,25 @@ var parameterSchema = new mongoose.Schema({
   },
   Parameter: [
     {
-      Dleft_sensor: {
+      Dl: {
         type: String,
       },
-      Dright_sensor: {
+      Dr: {
         type: String,
       },
-      distance: {
+      d: {
         type: String,
       },
-      distanceL: {
+      dL: {
         type: String,
       },
-      distanceR: {
+      dR: {
         type: String,
       },
-      Uleft_sensor: {
+      Ul: {
         type: String,
       },
-      Uright_sensor: {
+      Ur: {
         type: String,
       },
     },
