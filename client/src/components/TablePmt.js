@@ -24,13 +24,13 @@ const TablePmt = (props) => {
           props.data?.data?.data?.map((e, index) => (
             <tr key={index}>
             <td>{index}</td>
-            <td>{e.distance}</td>
-            <td>{e.distanceL}</td>
-            <td>{e.distanceR}</td>
-            <td>{e.Dleft_sensor}</td>
-            <td>{e.Dright_sensor}</td>
-            <td>{e.Uleft_sensor}</td>
-            <td>{e.Uright_sensor}</td>
+            <td>{e.d}</td>
+            <td>{e.dL}</td>
+            <td>{e.dR}</td>
+            <td>{e.Dl}</td>
+            <td>{e.Dr}</td>
+            <td>{e.Ul}</td>
+            <td>{e.Ur}</td>
           </tr>
           ))
         }
