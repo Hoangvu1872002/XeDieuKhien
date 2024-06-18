@@ -5,7 +5,7 @@ const TablePmt = (props) => {
   // console.log(props.data);
     return (
       <div>
-
+      <div className='table-container'>
         <table>
         <thead>
           <tr>
@@ -36,6 +36,7 @@ const TablePmt = (props) => {
         }
         </tbody>
       </table>
+      </div>
       <button className="bg-red-500 mt-3 hover:bg-red-700  text-white  py-1 px-1 border border-blue-700 rounded ml-2 " onClick={() => props.clearHandler()}>Clear</button>
       </div>
     );

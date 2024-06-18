@@ -13,7 +13,6 @@ const parameterRouter = require("./routes/parameters");
 const { errorsMiddleware } = require("./middlewares/errorsMiddleware");
 const dbConnect = require("./config/database");
 
-
 dbConnect();
 // fn()
 
@@ -49,43 +48,46 @@ const http = require("http");
 const server = http.createServer(app);
 server.listen(port, () => console.log(`Server running on port ${port}`));
 
-const { MongoClient } = require("mongodb");
-// const { Server } = require("socket.io");
-// const socketIO = require("socket.io");
+// const { MongoClient } = require("mongodb");
+// // const { Server } = require("socket.io");
+// // const socketIO = require("socket.io");
 
-const fun = async () => {
-  // const io = new Server(server);
-  const io = require("socket.io")(server, {
-    cors: {
-      // origin: "http://localhost:3000",
-      origin: "*",
-      // methods: ["GET"],
-    },
-  });
-  const client = new MongoClient(
-    "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority"
-  );
+// const fun = async () => {
+//   // const io = new Server(server);
+//   const io = require("socket.io")(server, {
+//     cors: {
+//       // origin: "http://localhost:3000",
+//       origin: "*",
+//       // methods: ["GET"],
+//     },
+//   });
+//   const client = new MongoClient(
+//     "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority"
+//   );
 
-  await client.connect();
-  const collection = client.db("test").collection("parameters");
-  const changeStream = collection.watch();
+//   await client.connect();
+//   const collection = client.db("test").collection("parameters");
+//   const changeStream = collection.watch();
 
-  changeStream.on("change", (change) => {
+//   changeStream.on("change", (change) => {
 
-    io.emit('collectionChange', change);
+//     io.emit('collectionChange', change);
 
+//   });
+// };
 
-    // io.emit('collectionChange', change.updateDescription.updatedFields.active);
-    // console.log("Received a change:", change.updateDescription.updatedFields.active);
+// fun();
 
-    // io.on("connection", (socket, change) => {
-    //   socket.on('sendData',(change) => {
-    //     console.log('Received message from client:', change.updateDescription.updatedFields.active);
-    //   })
-    // });
-  });
-};
+const socketIO = require("socket.io");
+// const driverModel = require("./models/driverModel");
+const io = socketIO(server, {
+  cors: {
+    origin: "*",
+  },
+});
 
-fun();
+const socketCtl = require("./controller/socketCtl");
+
+socketCtl(io);
 
 module.exports = app;

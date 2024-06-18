@@ -4,46 +4,52 @@ import io from "socket.io-client";
 import TablePmt from "./TablePmt";
 import parameterService from "../services/parameterService";
 
-const Active = () => {
+const Active = ({ setStatus, data }) => {
   const [active, setActive] = useState();
   const forwardHandler = async () => {
-    await activeService.update({ active: "F" });
-    // const data = await activeService.get();
-    // console.log(data);
+    // await activeService.update({ active: "F" });
+    setStatus({ active: "F" });
     setActive("-Forward-");
   };
   const backwardHandler = async () => {
-    await activeService.update({ active: "B" });
-    // const data = await activeService.get();
+    // await activeService.update({ active: "B" });
+    setStatus({ active: "B" });
     setActive("-Back-");
   };
   const turnLeftHandler = async () => {
-    await activeService.update({ active: "L" });
+    // await activeService.update({ active: "L" });
+    setStatus({ active: "L" });
     setActive("-Turn Left-");
   };
   const turnRightHandler = async () => {
-    await activeService.update({ active: "R" });
+    // await activeService.update({ active: "R" });
+    setStatus({ active: "R" });
     setActive("-Turn Right-");
   };
   const stopHandler = async () => {
-    await activeService.update({ active: "S" });
+    // await activeService.update({ active: "S" });
+    setStatus({ active: "s" });
     setActive("-Stop-");
   };
   const autoLineHandler = async () => {
-    await activeService.update({ active: "Y" });
+    // await activeService.update({ active: "Y" });
+    setStatus({ active: "Y" });
     setActive("-Auto Line-");
   };
   const autoObstacleHandler = async () => {
-    await activeService.update({ active: "Z" });
+    // await activeService.update({ active: "Z" });
+    setStatus({ active: "Z" });
     setActive("-Auto Obstacle-");
   };
   const aotoFollowHandler = async () => {
-    await activeService.update({ active: "T" });
+    // await activeService.update({ active: "T" });
+    setStatus({ active: "T" });
     setActive("-Auto Follow-");
   };
 
   const start = async () => {
-    await activeService.update({ active: "S" });
+    // await activeService.update({ active: "S" });
+    setStatus({ active: "S" });
     setActive("-Stop-");
   };
 
@@ -51,7 +57,7 @@ const Active = () => {
   //   console.log('Connected to server');
 
   // });
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
 
   const clearHandler = async () => {
     try {
@@ -61,30 +67,30 @@ const Active = () => {
     }
   };
 
-  const getDataParameter = async () => {
-    const data = await parameterService.get();
-    setData(data);
-  };
+  // const getDataParameter = async () => {
+  //   const data = await parameterService.get();
+  //   setData(data);
+  // };
 
   useEffect(() => {
     start();
-    getDataParameter();
-    // const socket = io('http://localhost:5000');
-    const socket = io("https://bugnef-be-xedieukhien.onrender.com");
-    socket.on("collectionChange", async (change) => {
-      if (change) {
-        try {
-          getDataParameter();
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    });
-    // console.log(data);
-    return () => {
-      socket.disconnect();
-      // clearHandler();// Ngắt kết nối khi component unmount
-    };
+    // getDataParameter();
+    // // const socket = io('http://localhost:5000');
+    // const socket = io("https://bugnef-be-xedieukhien.onrender.com");
+    // socket.on("collectionChange", async (change) => {
+    //   if (change) {
+    //     try {
+    //       getDataParameter();
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   }
+    // });
+    // // console.log(data);
+    // return () => {
+    //   socket.disconnect();
+    //   // clearHandler();// Ngắt kết nối khi component unmount
+    // };
   }, []);
 
   return (
