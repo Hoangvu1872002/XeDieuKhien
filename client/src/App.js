@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 import parameterService from "./services/parameterService";
 
 function App() {
-  const [status, setStatus] = useState("S");
+  const [status, setStatus] = useState({ active: "S" });
   const [data, setData] = useState();
   const [active, setActive] = useState();
 
