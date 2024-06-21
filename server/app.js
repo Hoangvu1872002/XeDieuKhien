@@ -9,6 +9,7 @@ var indexRouter = require("./routes/index");
 var carssRouter = require("./routes/cars");
 const accountRouter = require("./routes/accounts");
 const parameterRouter = require("./routes/parameters");
+const parameterModel = require("./models/parameterModel");
 
 const { errorsMiddleware } = require("./middlewares/errorsMiddleware");
 const dbConnect = require("./config/database");
@@ -59,19 +60,40 @@ const io = require("socket.io")(server, {
     // methods: ["GET"],
   },
 });
-let changeStream;
-const fun = async () => {
-  // const io = new Server(server);
-  const client = new MongoClient(
-    "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority"
+// const fun = async () => {
+//   // const io = new Server(server);
+//   const client = new MongoClient(
+//     "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority"
+//   );
+
+//   await client.connect();
+//   const collection = client.db("test").collection("parameters");
+//   const changeStream = collection.watch();
+
+//   changeStream.on("change", (change) => {
+//     // io.of("/car-active").emit("collectionChange", change);
+//   });
+// };
+
+// fun();
+
+app.post("/parameters/update", async (req, res) => {
+  const parameters = req.body;
+  const carName = await parameterModel.findOne({ carName: "bugnef" });
+  const carUpdate = await parameterModel.findByIdAndUpdate(
+    carName._id,
+    {
+      $push: { Parameter: parameters },
+    },
+    { new: true }
   );
-
-  await client.connect();
-  const collection = client.db("test").collection("parameters");
-  changeStream = collection.watch();
-};
-
-fun();
+  if (carUpdate) {
+    io.of("/car-active").emit("collectionChange", change);
+  }
+  return res.status(200).json({
+    success: carUpdate ? true : false,
+  });
+});
 
 // const socketIO = require("socket.io");
 // // const driverModel = require("./models/driverModel");
@@ -82,7 +104,8 @@ fun();
 // });
 
 const socketCtl = require("./controller/socketCtl");
+const parameterModel = require("./models/parameterModel");
 
-socketCtl(io, changeStream);
+socketCtl(io);
 
 module.exports = app;
