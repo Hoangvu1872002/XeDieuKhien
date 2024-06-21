@@ -16,6 +16,7 @@ function App() {
       console.log("Connected to server");
     });
     socket.on("updated-parameters", (data) => {
+      console.log(data);
       setData(data);
     });
     socket.on("updated-active", (data) => {
