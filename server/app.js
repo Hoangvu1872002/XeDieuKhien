@@ -49,7 +49,7 @@ const http = require("http");
 const server = http.createServer(app);
 server.listen(port, () => console.log(`Server running on port ${port}`));
 
-const { MongoClient } = require("mongodb");
+// const { MongoClient } = require("mongodb");
 // const { Server } = require("socket.io");
 // const socketIO = require("socket.io");
 
@@ -104,7 +104,7 @@ app.post("/parameters/update", async (req, res) => {
 // });
 
 const socketCtl = require("./controller/socketCtl");
-const parameterModel = require("./models/parameterModel");
+// const parameterModel = require("./models/parameterModel");
 
 socketCtl(io);
 
