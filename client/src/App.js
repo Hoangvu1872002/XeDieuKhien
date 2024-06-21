@@ -28,6 +28,7 @@ function App() {
 
   useEffect(() => {
     socket.emit("update-active", status);
+    socket.emit("update-parameters", data);
   }, [status]);
 
   return (
