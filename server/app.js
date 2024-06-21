@@ -59,6 +59,7 @@ const io = require("socket.io")(server, {
     // methods: ["GET"],
   },
 });
+let changeStream;
 const fun = async () => {
   // const io = new Server(server);
   const client = new MongoClient(
@@ -67,7 +68,7 @@ const fun = async () => {
 
   await client.connect();
   const collection = client.db("test").collection("parameters");
-  const changeStream = collection.watch();
+  changeStream = collection.watch();
 };
 
 fun();
