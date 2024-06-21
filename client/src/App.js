@@ -5,9 +5,9 @@ import { io } from "socket.io-client";
 import parameterService from "./services/parameterService";
 
 function App() {
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState("S");
   const [data, setData] = useState();
-  const [active, setActive] = useState("S");
+  const [active, setActive] = useState();
 
   const getDataParameter = async () => {
     const data = await parameterService.get();
