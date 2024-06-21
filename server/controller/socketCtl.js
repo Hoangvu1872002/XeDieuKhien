@@ -29,6 +29,7 @@ module.exports = function (io) {
     socket.on("update-active", async (data) => {
       try {
         const { active } = data;
+        console.log(data);
         const carUpdate = await carModel.findOne({
           account: "self-propelled vehicle",
         });
