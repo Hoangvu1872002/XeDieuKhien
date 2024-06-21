@@ -21,12 +21,21 @@ function App() {
     socket.on("connect", () => {
       console.log("Connected to server");
     });
-    socket.on("updated-parameters", (data) => {
-      console.log(data);
-      if (data) {
-        getDataParameter();
-      } else {
-        console.log("error");
+    // socket.on("updated-parameters", (data) => {
+    //   console.log(data);
+    //   if (data) {
+    //     getDataParameter();
+    //   } else {
+    //     console.log("error");
+    //   }
+    // });
+    socket.on("collectionChange", async (change) => {
+      if (change) {
+        try {
+          getDataParameter();
+        } catch (error) {
+          console.log(error);
+        }
       }
     });
     socket.on("updated-active", (data) => {
