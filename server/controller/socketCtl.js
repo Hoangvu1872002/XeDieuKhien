@@ -30,6 +30,7 @@ module.exports = function (io) {
       try {
         const { active } = data;
         console.log(data);
+        console.log(active);
         const carUpdate = await carModel.findOne({
           account: "self-propelled vehicle",
         });
