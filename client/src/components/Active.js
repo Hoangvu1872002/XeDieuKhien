@@ -4,53 +4,53 @@ import io from "socket.io-client";
 import TablePmt from "./TablePmt";
 import parameterService from "../services/parameterService";
 
-const Active = ({ setStatus, data }) => {
-  const [active, setActive] = useState();
+const Active = ({ setStatus, data, active }) => {
+  // const [active, setActive] = useState();
   const forwardHandler = async () => {
     // await activeService.update({ active: "F" });
     setStatus({ active: "F" });
-    setActive("-Forward-");
+    // setActive("-Forward-");
   };
   const backwardHandler = async () => {
     // await activeService.update({ active: "B" });
     setStatus({ active: "B" });
-    setActive("-Back-");
+    // setActive("-Back-");
   };
   const turnLeftHandler = async () => {
     // await activeService.update({ active: "L" });
     setStatus({ active: "L" });
-    setActive("-Turn Left-");
+    // setActive("-Turn Left-");
   };
   const turnRightHandler = async () => {
     // await activeService.update({ active: "R" });
     setStatus({ active: "R" });
-    setActive("-Turn Right-");
+    // setActive("-Turn Right-");
   };
   const stopHandler = async () => {
     // await activeService.update({ active: "S" });
     setStatus({ active: "S" });
-    setActive("-Stop-");
+    // setActive("-Stop-");
   };
   const autoLineHandler = async () => {
     // await activeService.update({ active: "Y" });
     setStatus({ active: "Y" });
-    setActive("-Auto Line-");
+    // setActive("-Auto Line-");
   };
   const autoObstacleHandler = async () => {
     // await activeService.update({ active: "Z" });
     setStatus({ active: "Z" });
-    setActive("-Auto Obstacle-");
+    // setActive("-Auto Obstacle-");
   };
   const aotoFollowHandler = async () => {
     // await activeService.update({ active: "T" });
     setStatus({ active: "T" });
-    setActive("-Auto Follow-");
+    // setActive("-Auto Follow-");
   };
 
   const start = async () => {
     // await activeService.update({ active: "S" });
     setStatus({ active: "S" });
-    setActive("-Stop-");
+    // setActive("-Stop-");
   };
 
   // socket.on('connect', () => {
@@ -98,7 +98,25 @@ const Active = ({ setStatus, data }) => {
       <div className="flex flex-col justify-center items-center h-[700px]">
         <div className="mb-[70px] ml-[50px] w-[200px] flex justify-center border-cyan-400 px-2 py-2 border">
           <span>Active:</span>
-          <span>{active}</span>
+          <span>
+            {active === "F"
+              ? "-Forward-"
+              : active === "B"
+              ? "-Back-"
+              : active === "L"
+              ? "-Turn Left-"
+              : active === "R"
+              ? "-Turn Right-"
+              : active === "S"
+              ? "-Stop-"
+              : active === "Y"
+              ? "-Auto Line-"
+              : active === "Z"
+              ? "-Auto Obstacle-"
+              : active === "T"
+              ? "-Auto Follow-"
+              : ""}
+          </span>
         </div>
         <div className="flex justify-center items-center">
           <div className="flex flex-col justify-center items-center border-r border-lime-500 pr-3">
