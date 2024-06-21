@@ -68,10 +68,6 @@ const fun = async () => {
   await client.connect();
   const collection = client.db("test").collection("parameters");
   const changeStream = collection.watch();
-
-  changeStream.on("change", (change) => {
-    io.of("/car-active").emit("collectionChange", change);
-  });
 };
 
 fun();
@@ -86,6 +82,6 @@ fun();
 
 const socketCtl = require("./controller/socketCtl");
 
-socketCtl(io);
+socketCtl(io, changeStream);
 
 module.exports = app;

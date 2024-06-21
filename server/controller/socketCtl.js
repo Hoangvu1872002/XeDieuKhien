@@ -2,7 +2,7 @@ const carModel = require("../models/carModel");
 
 const parameterModel = require("../models/parameterModel");
 
-module.exports = function (io) {
+module.exports = function (io, changeStream) {
   io.of("/car-active").on("connection", (socket) => {
     // console.log("New client connected: " + socket.id);
 
@@ -25,6 +25,10 @@ module.exports = function (io) {
     //     console.error("Error saving socket ID:", err);
     //   }
     // });
+
+    changeStream.on("change", (change) => {
+      io.of("/car-active").emit("collectionChange", change);
+    });
 
     socket.on("update-active", async (data) => {
       try {
