@@ -40,15 +40,17 @@ module.exports = function (io) {
           const dataActive = await carModel.findOne({});
           io.of("/car-active").emit("updated-active", dataActive.active);
         } else {
-          return res.status(400).json({
-            success: false,
-          });
+          // return res.status(400).json({
+          //   success: false,
+          // });
+          console.log("error");
         }
       } catch (error) {
         console.error("Error saving socket ID:", error);
-        return res.status(400).json({
-          success: false,
-        });
+        // return res.status(400).json({
+        //   success: false,
+        // });
+        console.log("error");
       }
     });
 
@@ -74,15 +76,17 @@ module.exports = function (io) {
             );
           }
         } else {
-          return res.status(400).json({
-            success: false,
-          });
+          // return res.status(400).json({
+          //   success: false,
+          // });
+          console.log("error");
         }
       } catch (error) {
         console.error("Error saving socket ID:", error);
-        return res.status(400).json({
-          success: false,
-        });
+        // return res.status(400).json({
+        //   success: false,
+        // });
+        console.log("error");
       }
     });
   });
