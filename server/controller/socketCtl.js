@@ -34,6 +34,8 @@ module.exports = function (io) {
         });
         if (active && carUpdate) {
           carUpdate.active = active;
+        } else {
+          console.log("error1");
         }
         const response = await carUpdate.save();
         if (response) {
@@ -43,14 +45,14 @@ module.exports = function (io) {
           // return res.status(400).json({
           //   success: false,
           // });
-          console.log("error");
+          console.log("error2");
         }
       } catch (error) {
         console.error("Error saving socket ID:", error);
         // return res.status(400).json({
         //   success: false,
         // });
-        console.log("error");
+        console.log("error3");
       }
     });
 
