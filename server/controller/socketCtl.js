@@ -62,6 +62,7 @@ module.exports = function (io) {
 
     socket.on("update-parameters", async (data) => {
       try {
+        console.log(data);
         const parameters = data;
         const carName = await parameterModel.findOne({ carName: "bugnef" });
         if (carModel) {
