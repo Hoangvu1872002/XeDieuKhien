@@ -45,7 +45,7 @@ module.exports = function (io) {
           });
         }
       } catch (error) {
-        console.error("Error saving socket ID:", err);
+        console.error("Error saving socket ID:", error);
         return res.status(400).json({
           success: false,
         });
@@ -79,7 +79,7 @@ module.exports = function (io) {
           });
         }
       } catch (error) {
-        console.error("Error saving socket ID:", err);
+        console.error("Error saving socket ID:", error);
         return res.status(400).json({
           success: false,
         });
