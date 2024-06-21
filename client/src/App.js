@@ -17,9 +17,9 @@ function App() {
     socket.on("updated-parameters", (data) => {
       setData(data);
     });
-    // socket.on("updated-active", (data) => {
-    //   console.log(data);
-    // });
+    socket.on("updated-active", (data) => {
+      console.log(data);
+    });
 
     return () => {
       socket.disconnect();
