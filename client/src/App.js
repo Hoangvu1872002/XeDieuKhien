@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Active from "./components/Active";
 import { io } from "socket.io-client";
+import parameterService from "./services/parameterService";
 
 function App() {
   const [status, setStatus] = useState();
   const [data, setData] = useState();
   const [active, setActive] = useState();
+
+  const getDataParameter = async () => {
+    const data = await parameterService.get();
+    setData(data);
+  };
 
   // const socket = io("http://127.0.0.1:5003/car-active");
   const socket = io("https://bugnef-be-xedieukhien.onrender.com/car-active");
@@ -17,7 +23,11 @@ function App() {
     });
     socket.on("updated-parameters", (data) => {
       console.log(data);
-      setData(data);
+      if (data) {
+        getDataParameter();
+      } else {
+        console.log("error");
+      }
     });
     socket.on("updated-active", (data) => {
       setActive(data);
