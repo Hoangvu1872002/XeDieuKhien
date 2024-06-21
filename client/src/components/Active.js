@@ -28,7 +28,7 @@ const Active = ({ setStatus, data }) => {
   };
   const stopHandler = async () => {
     // await activeService.update({ active: "S" });
-    setStatus({ active: "s" });
+    setStatus({ active: "S" });
     setActive("-Stop-");
   };
   const autoLineHandler = async () => {
