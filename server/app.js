@@ -52,15 +52,15 @@ const { MongoClient } = require("mongodb");
 // const { Server } = require("socket.io");
 // const socketIO = require("socket.io");
 
+const io = require("socket.io")(server, {
+  cors: {
+    // origin: "http://localhost:3000",
+    origin: "*",
+    // methods: ["GET"],
+  },
+});
 const fun = async () => {
   // const io = new Server(server);
-  const io = require("socket.io")(server, {
-    cors: {
-      // origin: "http://localhost:3000",
-      origin: "*",
-      // methods: ["GET"],
-    },
-  });
   const client = new MongoClient(
     "mongodb+srv://bugnef:o4GXlwddlEd1BfoA@cluster0.zxh5q5d.mongodb.net/?retryWrites=true&w=majority"
   );
