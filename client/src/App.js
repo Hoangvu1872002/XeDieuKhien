@@ -6,6 +6,7 @@ import { io } from "socket.io-client";
 function App() {
   const [status, setStatus] = useState();
   const [data, setData] = useState();
+  const [active, setActive] = useState();
 
   // const socket = io("http://127.0.0.1:5003/car-active");
   const socket = io("https://bugnef-be-xedieukhien.onrender.com/car-active");
@@ -18,7 +19,7 @@ function App() {
       setData(data);
     });
     socket.on("updated-active", (data) => {
-      console.log(data);
+      setActive(data);
     });
 
     return () => {
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <Active setStatus={setStatus} data={data}></Active>
+      <Active setStatus={setStatus} data={data} active={active}></Active>
     </div>
   );
 }
