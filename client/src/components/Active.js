@@ -177,7 +177,7 @@ const Active = ({ setStatus, data, active }) => {
           </div>
         </div>
       </div>
-      <div className="mt-[150px] w-[50%]">
+      <div className="mt-[60px] w-[50%]">
         <TablePmt data={data} clearHandler={clearHandler}></TablePmt>
       </div>
     </div>

@@ -8,6 +8,14 @@ const TablePmt = (props) => {
   // console.log(props.data);
   return (
     <div className="w-full h-[500px]">
+      <div className="flex justify-end">
+        <button
+          className="bg-red-500 mt-3 hover:bg-red-700  text-white  py-1 px-1 border border-blue-700 rounded ml-2  mb-5"
+          onClick={() => props.clearHandler()}
+        >
+          Clear
+        </button>
+      </div>
       <div className="h-full w-full">
         <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
           <div className="table-container">
@@ -42,12 +50,6 @@ const TablePmt = (props) => {
           </div>
         </Scrollbars>
       </div>
-      <button
-        className="bg-red-500 mt-3 hover:bg-red-700  text-white  py-1 px-1 border border-blue-700 rounded ml-2 "
-        onClick={() => props.clearHandler()}
-      >
-        Clear
-      </button>
     </div>
   );
 };
