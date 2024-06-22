@@ -77,23 +77,23 @@ const io = require("socket.io")(server, {
 
 // fun();
 
-app.post("/parameters/update", async (req, res) => {
-  const parameters = req.body;
-  const carName = await parameterModel.findOne({ carName: "bugnef" });
-  const carUpdate = await parameterModel.findByIdAndUpdate(
-    carName._id,
-    {
-      $push: { Parameter: parameters },
-    },
-    { new: true }
-  );
-  if (carUpdate) {
-    io.of("/car-active").emit("collectionChange", change);
-  }
-  return res.status(200).json({
-    success: carUpdate ? true : false,
-  });
-});
+// app.post("/parameters/update", async (req, res) => {
+//   const parameters = req.body;
+//   const carName = await parameterModel.findOne({ carName: "bugnef" });
+//   const carUpdate = await parameterModel.findByIdAndUpdate(
+//     carName._id,
+//     {
+//       $push: { Parameter: parameters },
+//     },
+//     { new: true }
+//   );
+//   if (carUpdate) {
+//     io.of("/car-active").emit("collectionChange", change);
+//   }
+//   return res.status(200).json({
+//     success: carUpdate ? true : false,
+//   });
+// });
 
 // const socketIO = require("socket.io");
 // // const driverModel = require("./models/driverModel");
