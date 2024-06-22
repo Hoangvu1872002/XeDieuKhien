@@ -22,7 +22,7 @@ function App() {
       console.log("Connected to server");
     });
     socket.on("updated-parameters", (dataParameter) => {
-      console.log(dataParameter);
+      // console.log(dataParameter);
       setData(dataParameter);
       // if (data) {
       //   getDataParameter();
@@ -56,7 +56,7 @@ function App() {
     socket.emit("update-active", status);
     // socket.emit("update-parameters", data);
   }, [status]);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="App">

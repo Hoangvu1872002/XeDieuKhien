@@ -5,7 +5,7 @@ import TablePmt from "./TablePmt";
 import parameterService from "../services/parameterService";
 
 const Active = ({ setStatus, data, active }) => {
-  console.log(data);
+  // console.log(data);
   // const [active, setActive] = useState();
   const forwardHandler = async () => {
     // await activeService.update({ active: "F" });
@@ -64,7 +64,7 @@ const Active = ({ setStatus, data, active }) => {
     try {
       await parameterService.delete();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
