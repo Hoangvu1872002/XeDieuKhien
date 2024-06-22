@@ -20,7 +20,7 @@ const TablePmt = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props?.data.map((e, index) => (
+            {props?.data?.map((e, index) => (
               <tr key={index}>
                 <td>{index}</td>
                 <td>{e.d}</td>
