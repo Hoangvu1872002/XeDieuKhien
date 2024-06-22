@@ -95,7 +95,7 @@ const Active = ({ setStatus, data, active }) => {
   }, []);
 
   return (
-    <div className="flex w-full justify-around ">
+    <div className="flex w-full justify-around gap-8">
       <div className="flex flex-col justify-center items-center h-[700px]">
         <div className="mb-[70px] ml-[50px] w-[200px] flex justify-center border-cyan-400 px-2 py-2 border">
           <span>Active:</span>
@@ -177,7 +177,7 @@ const Active = ({ setStatus, data, active }) => {
           </div>
         </div>
       </div>
-      <div className="mt-[150px]">
+      <div className="mt-[150px] w-[50%]">
         <TablePmt data={data} clearHandler={clearHandler}></TablePmt>
       </div>
     </div>
