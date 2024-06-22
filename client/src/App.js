@@ -11,7 +11,7 @@ function App() {
 
   const getDataParameter = async () => {
     const data = await parameterService.get();
-    setData(data);
+    setData(data?.data?.data);
   };
 
   // const socket = io("http://127.0.0.1:5003/car-active");
