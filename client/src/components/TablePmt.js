@@ -2,6 +2,8 @@ import React from "react";
 import "./TablePmt.css";
 
 const TablePmt = (props) => {
+  console.log(props);
+  console.log(props.data);
   // console.log(props.data);
   return (
     <div>
