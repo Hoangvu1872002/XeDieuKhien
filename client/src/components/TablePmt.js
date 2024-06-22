@@ -7,8 +7,8 @@ const TablePmt = (props) => {
   // console.log(props.data);
   // console.log(props.data);
   return (
-    <div className="w-full">
-      <div className="h-[500px] w-full">
+    <div className="w-full h-[500px]">
+      <div className="h-full w-full">
         <Scrollbars autoHide style={{ width: "100%", height: "100%" }}>
           <div className="table-container">
             <table>
