@@ -49,9 +49,14 @@ function App() {
   }, []);
 
   useEffect(() => {
+    getDataParameter();
+  }, []);
+
+  useEffect(() => {
     socket.emit("update-active", status);
     // socket.emit("update-parameters", data);
   }, [status]);
+  console.log(data);
 
   return (
     <div className="App">

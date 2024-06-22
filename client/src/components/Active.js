@@ -5,6 +5,7 @@ import TablePmt from "./TablePmt";
 import parameterService from "../services/parameterService";
 
 const Active = ({ setStatus, data, active }) => {
+  console.log(data);
   // const [active, setActive] = useState();
   const forwardHandler = async () => {
     // await activeService.update({ active: "F" });
