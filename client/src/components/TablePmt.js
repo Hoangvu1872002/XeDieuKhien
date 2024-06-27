@@ -1,21 +1,11 @@
-import React, { memo, useEffect, useState } from "react";
+import React from "react";
 import "./TablePmt.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 const TablePmt = (props) => {
-  // console.log(props?.data?.reverse());
+  // console.log(props);
   // console.log(props.data);
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    let arr = props?.data?.reverse();
-    setTimeout(() => {
-      setData(arr);
-    }, 200);
-  }, [props]);
-
-  // console.log(data);
-
+  // console.log(props.data);
   return (
     <div className="w-full h-[500px]">
       <div className="flex justify-end">
@@ -43,7 +33,7 @@ const TablePmt = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map((e, index) => (
+                {props?.data?.map((e, index) => (
                   <tr key={index}>
                     <td>{index}</td>
                     <td>{e.d}</td>
@@ -64,4 +54,4 @@ const TablePmt = (props) => {
   );
 };
 
-export default memo(TablePmt);
+export default TablePmt;
