@@ -68,7 +68,7 @@ module.exports = function (io) {
           const response = await parameterModel.findByIdAndUpdate(
             carName._id,
             {
-              $push: { Parameter: { $each: ["param0"], $position: 0 } },
+              $push: { Parameter: parameters },
             },
             { new: true }
           );
