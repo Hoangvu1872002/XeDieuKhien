@@ -48,6 +48,12 @@ const Active = ({ setStatus, data, active }) => {
     // setActive("-Auto Follow-");
   };
 
+  const disconnect = async () => {
+    // await activeService.update({ active: "T" });
+    setStatus({ active: "Disconnect" });
+    // setActive("-Auto Follow-");
+  };
+
   const start = async () => {
     // await activeService.update({ active: "S" });
     setStatus({ active: "S" });
@@ -97,6 +103,20 @@ const Active = ({ setStatus, data, active }) => {
   return (
     <div className="flex w-full justify-around gap-8">
       <div className="flex flex-col justify-center items-center h-[700px]">
+        <div className="flex justify-start w-full">
+          {["F", "B", "L", "R", "S", "Y", "Z", "T"].includes(active) ? (
+            <button
+              className="bg-gray-500 mb-3 p-2 rounded-md hover:bg-red-700 text-white font-bold border border-blue-700 ml-2 mr-2"
+              onClick={disconnect}
+            >
+              Disconnect
+            </button>
+          ) : (
+            <div className="bg-red-700 mb-3 p-2 rounded-md text-white font-bold border border-gray-700 ml-2 mr-2">
+              Disconnected
+            </div>
+          )}
+        </div>
         <div className="mb-[70px] ml-[50px] w-[200px] flex justify-center border-cyan-400 px-2 py-2 border">
           <span>Active:</span>
           <span>
