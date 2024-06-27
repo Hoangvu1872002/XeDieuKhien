@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./TablePmt.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
@@ -55,4 +55,4 @@ const TablePmt = (props) => {
   );
 };
 
-export default TablePmt;
+export default memo(TablePmt);
