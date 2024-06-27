@@ -3,19 +3,13 @@ import "./TablePmt.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 const TablePmt = (props) => {
-  // console.log(props?.data?.reverse())
   const [data, setData] = useState();
   // console.log(props);
+  // console.log(props.data);
+  console.log(props.data);
   useEffect(() => {
-    let arr = props?.data?.reverse();
-    setTimeout(() => {
-      console.log(arr);
-      setData(arr);
-    }, 1000);
+    setData(props);
   }, [props]);
-  // console.log(props);
-  // console.log(props.data);
-  // console.log(props.data);
   return (
     <div className="w-full h-[500px]">
       <div className="flex justify-end">
@@ -43,7 +37,7 @@ const TablePmt = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map((e, index) => (
+                {data?.data?.reverse()?.map((e, index) => (
                   <tr key={index}>
                     <td>{index}</td>
                     <td>{e.d}</td>
