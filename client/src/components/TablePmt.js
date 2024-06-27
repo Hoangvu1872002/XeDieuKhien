@@ -3,13 +3,15 @@ import "./TablePmt.css";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 const TablePmt = (props) => {
-  // console.log(props);
+  console.log(props);
   // console.log(props.data);
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
 
-  useEffect(() => {
-    setData(props?.data?.reverse());
-  }, [props]);
+  // useEffect(() => {
+  //   setData(props?.data?.reverse());
+  // }, [props]);
+
+  // console.log(data);
 
   return (
     <div className="w-full h-[500px]">
@@ -38,7 +40,7 @@ const TablePmt = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map((e, index) => (
+                {props?.data?.map((e, index) => (
                   <tr key={index}>
                     <td>{index}</td>
                     <td>{e.d}</td>
