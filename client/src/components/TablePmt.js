@@ -5,8 +5,13 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 const TablePmt = (props) => {
   // console.log(props?.data?.reverse())
   const [data, setData] = useState();
+  // console.log(props);
   useEffect(() => {
-    setData(props?.data?.reverse());
+    let arr = props?.data?.reverse();
+    setTimeout(() => {
+      console.log(arr);
+      setData(arr);
+    }, 1000);
   }, [props]);
   // console.log(props);
   // console.log(props.data);
