@@ -73,12 +73,13 @@ module.exports = function (io) {
             { new: true }
           );
           if (response) {
-            const dataParameter = await parameterModel.findOne({
-              carName: "bugnef",
-            });
+            // const dataParameter = await parameterModel.findOne({
+            //   carName: "bugnef",
+            // });
             io.of("/car-active").emit(
               "updated-parameters",
-              dataParameter.Parameter
+              // dataParameter.Parameter
+              "updated-parameters"
             );
           }
         } else {

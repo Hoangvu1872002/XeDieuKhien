@@ -22,13 +22,13 @@ function App() {
       console.log("Connected to server");
     });
     socket.on("updated-parameters", (dataParameter) => {
-      // console.log(dataParameter);
-      setData(dataParameter);
-      // if (data) {
-      //   getDataParameter();
-      // } else {
-      //   console.log("error");
-      // }
+      console.log(dataParameter);
+      // setData(dataParameter);
+      if (dataParameter) {
+        getDataParameter();
+      } else {
+        console.log("error");
+      }
     });
     // socket.on("collectionChange", async (change) => {
     //   if (change) {
