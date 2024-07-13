@@ -60,7 +60,12 @@ function App() {
 
   return (
     <div className="App">
-      <Active setStatus={setStatus} data={data} active={active}></Active>
+      <Active
+        setStatus={setStatus}
+        data={data}
+        active={active}
+        setData={setData}
+      ></Active>
     </div>
   );
 }

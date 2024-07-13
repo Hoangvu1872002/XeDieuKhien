@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import TablePmt from "./TablePmt";
 import parameterService from "../services/parameterService";
 
-const Active = ({ setStatus, data, active }) => {
+const Active = ({ setStatus, data, active, setData }) => {
   // console.log(data);
   // const [active, setActive] = useState();
   const forwardHandler = async () => {
@@ -69,6 +69,7 @@ const Active = ({ setStatus, data, active }) => {
   const clearHandler = async () => {
     try {
       await parameterService.delete();
+      setData([]);
     } catch (error) {
       // console.log(error);
     }
